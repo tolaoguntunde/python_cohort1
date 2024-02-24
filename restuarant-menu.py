@@ -50,7 +50,7 @@ while True:
 # total cost is user selected item * quantity selected * tax
 #initialize total cost
 total_cost = 0
-#assuming tax is 13%
+#assume tax is 13%
 tax = 0.13
 for item_user_order in user_order:
    total_cost = total_cost + (user_order[item_user_order] * items_on_menu[item_user_order] * 0.13 ) 
