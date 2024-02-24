@@ -1,5 +1,5 @@
 #Restuarant Menu App
-# This app get order from cuatomer and return the total cost
+# This app get order from customer and return the total cost
 
 #import pandas library to read excel files
 import pandas as pd
