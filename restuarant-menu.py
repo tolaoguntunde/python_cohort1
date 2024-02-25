@@ -54,8 +54,8 @@ total_cost = 0
 #assuming tax is 13%
 tax = 0.13
 for item_user_order in user_order:
-    order = (user_order[item_user_order] * items_on_menu[item_user_order])
-    total_cost = total_cost + order
+    order_times_quantity = (user_order[item_user_order] * items_on_menu[item_user_order])
+    total_cost = total_cost + order_times_quantity
 # print (total_cost) cost without tax
 total_cost_plus_tax = total_cost + (total_cost * 0.13) 
 print("This order includes tax(13%) and total cost is : ${:.2f}".format(total_cost_plus_tax))
