@@ -24,9 +24,10 @@ user_order={}
 
 while True:
     user_select_menu = input("Please select the item you would like to purchase: ")
-    
+    user_select_menu = user_select_menu.casefold()
     #check if user's selected item is in the menu excel file
     if (user_select_menu in items_on_menu.keys()):
+        
         user_select_menu_quantity = int(input("Please enter the quantity of the item you would like to purchase: "))
         #check if user selected item is not already in the user_order 
         if (user_select_menu not in user_order):
