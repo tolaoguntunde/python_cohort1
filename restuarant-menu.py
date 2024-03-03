@@ -19,12 +19,12 @@ for val in df.values:
     item, value = val
     items_on_menu[item.casefold()]= value
 
+
 # This stores user's selected menu and quantity
 user_order={}
-
+    
 while True:
-    user_select_menu = input("Please select the item you would like to purchase: ")
-    user_select_menu.casefold()
+    user_select_menu = input("Please select the item you would like to purchase: ").casefold()
     #check if user's selected item is in the menu excel file
     if (user_select_menu in items_on_menu.keys()):
         
@@ -38,7 +38,10 @@ while True:
             user_order[user_select_menu.casefold()] = new_quantity
         request= input("Do you want to add more (y / n ) : ")
         if (request == 'n'):
-            print(user_order)
+            # print(user_order)
+            print('\n **** Receipt **** \n')
+            for selected_items,customer_quantity in user_order.items():
+                print('{} {} @ ${} = ${}'.format(selected_items.capitalize(),customer_quantity,items_on_menu[selected_items],items_on_menu[selected_items] * customer_quantity))
             break
         
         if (request == 'y'):
@@ -48,16 +51,17 @@ while True:
 
 
 
-# total cost is user selected item * quantity selected * tax
+
 #initialize total cost
 total_cost = 0
-#assuming tax is 13%
+#assume tax is 13%
 tax = 0.13
 for item_user_order in user_order:
     order_times_quantity = (user_order[item_user_order] * items_on_menu[item_user_order])
     total_cost = total_cost + order_times_quantity
 # print (total_cost) cost without tax
 total_cost_plus_tax = total_cost + (total_cost * 0.13) 
-print("This order includes tax(13%) and total cost is : ${:.2f}".format(total_cost_plus_tax))
+print("Total cost after tax(13%) is : ${:.2f} \n".format(total_cost_plus_tax))
+# print("This order includes tax(13%) \n  total cost is : ${:.2f}".format(total_cost_plus_tax))
 
 
